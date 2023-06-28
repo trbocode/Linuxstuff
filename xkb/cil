@@ -1,0 +1,75 @@
+// This is an implemetation of the Israeli standard SI-1452 (2013)
+// It does not implement changes to the English layout, as that part
+// of the standard is not normative nor really useful in the context
+// of xkb.
+// This implementation extends the standard with Yiddish digraphs
+// (a common extension) and Nun Hafukha (a fun character).
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    // uses the kbd layout in use in Israel.
+
+    name[Group1]= "Hebrew";
+    key.type[Group1] = "FOUR_LEVEL_SEMIALPHABETIC";
+
+    key <AB01> { [ hebrew_zain,	Z		]       };
+    key <AB02> { [ hebrew_samech, X,	U05B6	]       };  // Segol
+    key <AB03> { [ hebrew_bet,	C,	U05B1	]       };  // Hataf Segol
+    key <AB04> { [ hebrew_he,	D		]       };
+    key <AB05> { [ hebrew_nun,	V,	NoSymbol,	U05C6	]}; // Nun Hafukha
+    key <AB06> { [ hebrew_mem,	K		]	};
+    key <AB07> { [ hebrew_zade,	H,	U05B5	]	};  // Tsere
+    key <AB08> { [ hebrew_taw,	greater,	rightsinglequotemark	]}; // greater Mirrored
+    key <AB09> { [ hebrew_finalzade,	less,	singlelowquotemark	]}; // less Mirrored
+
+    key <AC01> { [ hebrew_shin,	A,	U05B0	]	};  // Shva
+    key <AC02> { [ hebrew_dalet,R,	U05BC	]       };  // Dagesh
+    key <AC03> { [ hebrew_gimel,S		]       };
+    key <AC04> { [ hebrew_kaph,	T		]	};
+    key <AC05> { [ hebrew_ayin,	G,	U05F1	]       };  // Yiddish Vav Yod
+    key <AC06> { [ hebrew_yod,	M,	U05F2	]       };  // Yiddish Double Yod
+    key <AC07> { [ hebrew_chet,	N,	U05B4	]	};  // Hiriq
+    key <AC08> { [ hebrew_lamed, E		]	};
+    key <AC09> { [ hebrew_finalkaph,	I,	rightdoublequotemark	]};
+    key <AC10> { [ hebrew_finalpe,	O,	doublelowquotemark	]};
+
+    key <AD01> { [ comma,	Q,	U05C2	]	};  // Sin Dot
+    key <AD02> { [ apostrophe,	W,	U05C1	]	};  // Shin Dot
+    key <AD03> { [ hebrew_qoph,	F,	U05B8	]	};  // Qamats
+    key <AD04> { [ hebrew_resh,	P,	U05B3	]	};  // Hataf Qamats
+    key <AD05> { [ hebrew_aleph,B		]       };
+    key <AD06> { [ hebrew_tet,	J,	U05F0	]       };  // Yiddish Double Vav
+    key <AD07> { [ hebrew_waw,	L,	U05B9	]       };  // Holam
+    key <AD08> { [ hebrew_finalnun,	U	]       };
+    key <AD09> { [ hebrew_finalmem,	Y	]       };
+    key <AC11> { [ hebrew_pe,	colon,	U05B7	]	};  // Patah
+
+    key.type[Group1] = "FOUR_LEVEL";
+
+    // Non-alphanumeric keys
+    key <AB10> { [ period,	question,  division	]};
+    key <AD10> { [ slash,	quotedbl,	U05F4]	};  // Gershayim
+    key <AD11> { [ bracketright, braceright, U05B2	]}; // Mirrored; Hataf Patah
+    key <AD12> { [ bracketleft,  braceleft,  U05BF	]}; // Mirrored; Rafe
+    key <BKSL> { [ backslash,    bar,  U05BB	]	};  // Qubuts
+
+    // Top (digits) row
+    key <TLDE> { [ semicolon,	asciitilde,	U05F3	]}; // Geresh
+    key <AE01> { [     1,	exclam	]		};
+    key <AE02> { [     2,	at	]		};
+    key <AE03> { [     3, 	numbersign,	EuroSign	]};
+    key <AE04> { [     4, 	dollar,		NewSheqelSign	]};
+    key <AE05> { [     5,	percent,	degree	]};
+    key <AE06> { [     6, 	asciicircum,	U05AB	]}; // Hebrew Accent Ole
+    key <AE07> { [     7,	ampersand,	U05BD	]}; // Meteg
+    key <AE08> { [     8,	asterisk,	multiply]};
+    key <AE09> { [     9,	parenright,	U200E	]}; // LRM; Paren Mirrored
+    key <AE10> { [     0,	parenleft,	U200F	]}; // RLM; Paren Mirrored
+    key <AE11> { [ minus,	underscore,	U05BE	]}; // Maqaf
+    key <AE12> { [ equal, 	plus,		endash	]};
+
+    include "level3(ralt_switch)"
+};
+
+
+
